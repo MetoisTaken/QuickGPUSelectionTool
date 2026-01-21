@@ -128,6 +128,28 @@
                                    Foreground="{StaticResource TextSecondary}" Margin="0,4,0,0"/>
                         <TextBlock Text="© 2026 QGST Project" 
                                    Foreground="{StaticResource TextMuted}" Margin="0,4,0,0"/>
+                        
+                        <!-- Developer Section -->
+                        <StackPanel Margin="0,16,0,0">
+                            <TextBlock Text="Developer" Style="{StaticResource SectionHeader}"/>
+                            <TextBlock Text="Metehan Beyaz" FontWeight="SemiBold"/>
+                            <TextBlock Margin="0,4,0,0">
+                                <Hyperlink NavigateUri="mailto:metehanbyz@outlook.com" 
+                                          RequestNavigate="Hyperlink_RequestNavigate"
+                                          Foreground="{StaticResource AccentBlue}"
+                                          TextDecorations="None">
+                                    metehanbyz@outlook.com
+                                </Hyperlink>
+                            </TextBlock>
+                            <TextBlock Margin="0,4,0,0">
+                                <Hyperlink NavigateUri="https://github.com/MetoisTaken" 
+                                          RequestNavigate="Hyperlink_RequestNavigate"
+                                          Foreground="{StaticResource AccentBlue}"
+                                          TextDecorations="None">
+                                    github.com/MetoisTaken
+                                </Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>

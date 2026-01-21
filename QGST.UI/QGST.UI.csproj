@@ -14,6 +14,8 @@
     <Product>QGST - Quick GPU Selector Tool</Product>
     <Copyright>© 2026 QGST Project</Copyright>
     <Description>GPU Selector Tool for Windows multi-GPU systems</Description>
+    <Authors>Metehan Beyaz</Authors>
+    <PackageProjectUrl>https://github.com/MetoisTaken</PackageProjectUrl>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 

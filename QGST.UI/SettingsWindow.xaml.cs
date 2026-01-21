@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using QGST.Core.Services;
 
 // Use alias to resolve ambiguity with System.Windows.Controls.ContextMenuService
@@ -233,5 +234,22 @@ public partial class SettingsWindow : Window
     private void BtnClose_Click(object sender, RoutedEventArgs e)
     {
         Close();
+    }
+
+    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = e.Uri.AbsoluteUri,
+                UseShellExecute = true
+            });
+            e.Handled = true;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, _loc["error"], MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
