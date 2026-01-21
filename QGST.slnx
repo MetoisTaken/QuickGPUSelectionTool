@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="QGST.CLI/QGST.CLI.csproj" />
+  <Project Path="QGST.Core/QGST.Core.csproj" />
+  <Project Path="QGST.UI/QGST.UI.csproj" />
+</Solution>

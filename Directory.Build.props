@@ -1,0 +1,21 @@
+<Project>
+  <!-- Common build output directory for all projects -->
+  <PropertyGroup>
+    <OutputPath>$(MSBuildThisFileDirectory)build\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <!-- Common publish output directory -->
+  <PropertyGroup>
+    <PublishDir>$(MSBuildThisFileDirectory)publish\$(Configuration)\</PublishDir>
+  </PropertyGroup>
+
+  <!-- Shared assembly info -->
+  <PropertyGroup>
+    <Authors>QGST Project</Authors>
+    <Company>QGST Project</Company>
+    <Copyright>© 2026 QGST Project</Copyright>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+</Project>

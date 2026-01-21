@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>QGST.Core</RootNamespace>
+    <AssemblyName>QGST.Core</AssemblyName>
+    <Version>1.0.0</Version>
+    <Company>QGST Project</Company>
+    <Product>QGST - Quick GPU Selector Tool</Product>
+    <Copyright>© 2026 QGST Project</Copyright>
+    <Description>Core library for QGST - Quick GPU Selector Tool</Description>
+  </PropertyGroup>
+
+  <!-- Production Release settings -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="10.0.2" />
+  </ItemGroup>
+
+  <!-- Include locales as content files to be copied to output -->
+  <ItemGroup>
+    <Content Include="Data\locales\*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>locales\%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+</Project>

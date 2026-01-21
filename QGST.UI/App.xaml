@@ -1,0 +1,17 @@
+<Application x:Class="QGST.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:QGST.UI"
+             xmlns:conv="clr-namespace:QGST.UI.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Value Converters -->
+        <conv:VendorInitialConverter x:Key="VendorInitialConverter"/>
+        <conv:VendorColorConverter x:Key="VendorColorConverter"/>
+        <conv:GpuTypeConverter x:Key="GpuTypeConverter"/>
+        <conv:GpuTypeBgConverter x:Key="GpuTypeBgConverter"/>
+        <conv:GpuTypeFgConverter x:Key="GpuTypeFgConverter"/>
+        <conv:VramToGbConverter x:Key="VramToGbConverter"/>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Application.Resources>
+</Application>

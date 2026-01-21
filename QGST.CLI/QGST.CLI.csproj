@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>QGST.CLI</RootNamespace>
+    <AssemblyName>qgst</AssemblyName>
+    <Version>1.0.0</Version>
+    <Company>QGST Project</Company>
+    <Product>QGST CLI - Quick GPU Selector Tool</Product>
+    <Copyright>© 2026 QGST Project</Copyright>
+    <Description>Command-line interface for QGST</Description>
+  </PropertyGroup>
+
+  <!-- Production Release settings -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QGST.Core\QGST.Core.csproj" />
+  </ItemGroup>
+
+</Project>

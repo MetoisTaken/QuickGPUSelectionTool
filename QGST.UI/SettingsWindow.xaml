@@ -1,0 +1,159 @@
+<Window x:Class="QGST.UI.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings" Height="450" Width="380"
+        WindowStartupLocation="CenterOwner"
+        Background="#0D0D0D" Foreground="#E0E0E0"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+    
+    <Window.Resources>
+        <SolidColorBrush x:Key="BackgroundCard" Color="#1A1A1A"/>
+        <SolidColorBrush x:Key="BackgroundHover" Color="#252525"/>
+        <SolidColorBrush x:Key="AccentBlue" Color="#0078D4"/>
+        <SolidColorBrush x:Key="TextPrimary" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TextSecondary" Color="#A0A0A0"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#606060"/>
+        <SolidColorBrush x:Key="BorderSubtle" Color="#333333"/>
+
+        <Style x:Key="SettingSection" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource BackgroundCard}"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+        </Style>
+
+        <Style x:Key="SectionHeader" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+        </Style>
+
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                Padding="{TemplateBinding Padding}" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource BackgroundHover}"/>
+                                <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource ActionButton}">
+            <Setter Property="Foreground" Value="#E74C3C"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="Settings" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Language Section -->
+                <Border Style="{StaticResource SettingSection}">
+                    <StackPanel>
+                        <TextBlock Text="LANGUAGE" Style="{StaticResource SectionHeader}"/>
+                        <ComboBox x:Name="CmbLanguage" SelectionChanged="CmbLanguage_SelectionChanged">
+                            <ComboBoxItem Content="Auto (System)" Tag="auto"/>
+                            <ComboBoxItem Content="English" Tag="en"/>
+                            <ComboBoxItem Content="Türkçe" Tag="tr"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+
+                <!-- Context Menu Section -->
+                <Border Style="{StaticResource SettingSection}">
+                    <StackPanel>
+                        <TextBlock Text="CONTEXT MENU" Style="{StaticResource SectionHeader}"/>
+                        <Button x:Name="BtnRegisterMenu" Style="{StaticResource ActionButton}" 
+                                Content="Register Context Menu" Click="BtnRegisterMenu_Click"/>
+                        <Button x:Name="BtnUnregisterMenu" Style="{StaticResource ActionButton}" 
+                                Content="Remove Context Menu" Click="BtnUnregisterMenu_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Data Section -->
+                <Border Style="{StaticResource SettingSection}">
+                    <StackPanel>
+                        <TextBlock Text="DATA" Style="{StaticResource SectionHeader}"/>
+                        <Button Style="{StaticResource ActionButton}" 
+                                Content="Create Backup" Click="BtnBackup_Click"/>
+                        <Button Style="{StaticResource ActionButton}" 
+                                Content="Export Diagnostics" Click="BtnDiagnostics_Click"/>
+                        <Button Style="{StaticResource ActionButton}" 
+                                Content="Open Data Folder" Click="BtnOpenFolder_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Reset Section -->
+                <Border Style="{StaticResource SettingSection}">
+                    <StackPanel>
+                        <TextBlock Text="RESET" Style="{StaticResource SectionHeader}"/>
+                        <Button Style="{StaticResource DangerButton}" 
+                                Content="Reset GPU Preferences Only" Click="BtnResetPrefs_Click"/>
+                        <Button Style="{StaticResource DangerButton}" 
+                                Content="Reset All Settings" Click="BtnResetAll_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- About Section -->
+                <Border Style="{StaticResource SettingSection}">
+                    <StackPanel>
+                        <TextBlock Text="ABOUT" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock Text="QGST - Quick GPU Selector Tool" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="TxtVersion" Text="Version 1.0.0" 
+                                   Foreground="{StaticResource TextSecondary}" Margin="0,4,0,0"/>
+                        <TextBlock Text="© 2026 QGST Project" 
+                                   Foreground="{StaticResource TextMuted}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Close Button -->
+        <Button Grid.Row="2" Content="Close" HorizontalAlignment="Right" 
+                Padding="20,10" Click="BtnClose_Click" Margin="0,16,0,0">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="{StaticResource BackgroundCard}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
