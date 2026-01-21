@@ -10,7 +10,9 @@
 <p align="center">
   <strong>Simple and powerful GPU selection for Windows multi-GPU systems</strong>
 </p>
-
+<p align="center">
+  <img src="images/QGST-en.png" alt="QGST Screenshot" width="450">
+</p>
 QGST lets you choose which GPU runs your applications. Perfect for laptops with integrated + discrete GPUs or desktops with multiple graphics cards.
 
 ## ✨ Features
@@ -45,6 +47,10 @@ That's it! Fully portable, no installer needed.
 ### Context Menu (Quickest Way)
 
 Right-click any `.exe`, `.lnk`, `.bat`, `.cmd`, or `.url` file:
+
+<p align="center">
+  <img src="images/contextmenu_en.png" alt="Context Menu" width="400">
+</p>
 
 - **Run with GPU (One-Time)** - Choose GPU, app runs once, preference reverts
 - **Set Default GPU** - Choose GPU, preference saved permanently  

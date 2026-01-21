@@ -10,7 +10,9 @@
 <p align="center">
   <strong>Windows çoklu GPU sistemleri için basit ve güçlü GPU seçimi</strong>
 </p>
-
+<p align="center">
+  <img src="images/QGST-tr.png" alt="QGST Ekran Görüntüsü" width="450">
+</p>
 QGST, uygulamalarınızı hangi GPU'nun çalıştıracağını seçmenizi sağlar. Entegre + harici GPU'lu dizüstü bilgisayarlar veya birden fazla ekran kartına sahip masaüstü sistemler için mükemmel.
 
 ## ✨ Özellikler
@@ -45,6 +47,10 @@ Hepsi bu kadar! Tamamen taşınabilir, kurulum gerektirmez.
 ### Bağlam Menüsü (En Hızlı Yol)
 
 Herhangi bir `.exe`, `.lnk`, `.bat`, `.cmd` veya `.url` dosyasına sağ tıklayın:
+
+<p align="center">
+  <img src="images/contextmenu_tr.png" alt="Bağlam Menüsü" width="400">
+</p>
 
 - **GPU ile Çalıştır (Tek Seferlik)** - GPU seçin, uygulama bir kez çalışsın, tercih geri alınsın
 - **Varsayılan GPU Olarak Ata** - GPU seçin, tercih kalıcı olarak kaydedilsin
