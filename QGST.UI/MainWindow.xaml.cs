@@ -368,7 +368,6 @@ public partial class MainWindow : Window
             ModeOneTime.IsChecked == true ? "one-time" : "set-default");
 
         bool isOneTime = ModeOneTime.IsChecked == true;
-        int prefValue = selectedGpu.PreferenceValue;
 
         if (isOneTime)
         {
@@ -379,9 +378,10 @@ public partial class MainWindow : Window
             {
                 _config.Log($"One-time run: {_resolvedTarget} with GPU {selectedGpu.DisplayName}");
                 
+                // Use GpuInfo object directly for accurate GPU selection (not just PreferenceValue)
                 var exitCode = await _launcher.RunOneTimeAsync(
                     _resolvedTarget, 
-                    prefValue, 
+                    selectedGpu, 
                     _targetArguments, 
                     _targetWorkingDir);
                 
@@ -404,7 +404,8 @@ public partial class MainWindow : Window
             // Set Default mode
             try
             {
-                _launcher.SetDefaultGpu(_resolvedTarget, prefValue);
+                // Use GpuInfo object directly for accurate GPU selection (not just PreferenceValue)
+                _launcher.SetDefaultGpu(_resolvedTarget, selectedGpu);
                 
                 ShowToast("✅", string.Format(_loc["gpu_set_success_detail"], selectedGpu.ShortDisplayName), true);
             }
@@ -447,7 +448,8 @@ public partial class MainWindow : Window
         {
             try
             {
-                _launcher.SetDefaultGpu(exePath, selectedGpu.PreferenceValue);
+                // Use GpuInfo object directly for accurate GPU selection (not just PreferenceValue)
+                _launcher.SetDefaultGpu(exePath, selectedGpu);
                 success++;
             }
             catch
